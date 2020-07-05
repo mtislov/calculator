@@ -1,0 +1,33 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    flex-wrap: nowrap;
+
+}
+
+.calculator div {
+    display: flex;
+}
+
+
+.calculator__screen {
+    height: 60px;
+}
+
+.calculator button {
+    width: 25%;
+    height: 50px;
+} 
+
+.calculator .calculator__double {
+    width: 50%;
+}
