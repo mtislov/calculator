@@ -29,6 +29,7 @@
 .calculator button {
     width: 25%;
     height: 50px;
+    cursor: pointer;
 } 
 
 .calculator .calculator__double {
