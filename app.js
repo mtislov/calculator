@@ -1,11 +1,10 @@
 
-
-
-
-
+const calculator = document.querySelector('.calculator');
 const calcBtnArr = Array.from(document.querySelectorAll('.calculator__btn'));
 const calcSreen = document.querySelector('.calculator__screen');
+const calcError = document.querySelector('.calculator__error');
 const calcOperators = ['/', '*', '-', '+', '.'];
+
 
 
 function calcValidate (operator) {
@@ -15,7 +14,6 @@ function calcValidate (operator) {
 
     calcOperators.forEach(op => {
         if (op == val.slice(-1)) calcClearLast();
-
     });
 
     return true;
@@ -38,8 +36,37 @@ function calcClearLast() {
 }
 
 function calculate() { 
+
     if (calcSreen.value == '') return false;
 
-    calcSreen.value = eval(calcSreen.value);
-    console.log(eval(calcSreen.value));
+    try {
+        calcSreen.value = eval(calcSreen.value);
+    } catch {
+        showError();
+    }    
 }
+
+function showError() {
+    calcError.style.display = 'block';
+    setTimeout( () => {
+        calcError.style.display = 'none';
+    }, 3000);
+}
+
+const numbersKeys = /['0-9']/;
+const operatorsKeys = /['+', '*', '(', ')', '/', '.' ^\s -]/;
+
+function checkKeyPress(event) {
+    event.preventDefault();
+    calcSreen.focus();
+    
+    let key = event.key;
+
+    if ( numbersKeys.test(key) ) addValue(key);
+
+    else if ( operatorsKeys.test(key) ) addOperator(key);
+
+    else if (key == 'Enter' || key == '=') calculate();
+}
+
+calculator.onkeypress = (event) => checkKeyPress(event);

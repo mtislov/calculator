@@ -12,6 +12,7 @@
     max-width: 300px;
     flex-wrap: nowrap;
     font-family: 'Montserrat', sans-serif;
+    position: relative;
 
     font-size: 25px;
 
@@ -24,6 +25,7 @@
 
 .calculator__screen {
     height: 60px;
+    text-align: right;
 }
 
 .calculator button {
@@ -34,4 +36,41 @@
 
 .calculator .calculator__double {
     width: 50%;
+}
+
+.calculator__error {
+    content: 'Error';
+    position: absolute;
+    color: red;
+    display: none;
+}
+
+
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-8px);
+  }
+}
+
+.shake-horizontal {
+	animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }

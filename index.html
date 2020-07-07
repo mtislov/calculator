@@ -13,7 +13,8 @@
     
     <div class="main-container">
         <div class="calculator">
-            <input class="calculator__screen" placeholder="0" type="text" autofocus>
+            <p class="calculator__error">Error</p>
+            <input class="calculator__screen" placeholder="0" maxlength="50" type="text" autofocus>
             <div>
                 <button class="calculator__btn" onclick="calcClear()">C</button>
                 <button class="calculator__btn" onclick="calcClearLast()"><<</button>
@@ -41,7 +42,7 @@
             <div>
                 <button class="calculator__btn" onclick="addOperator('.')">.</button>
                 <button class="calculator__btn" onclick="addValue(0)">0</button>
-                <button class="calculator__btn" onclick="calculate()">=</button>
+                <button class="calculator__btn shake-horizontal" onclick="calculate()">=</button>
                 <button class="calculator__btn" onclick="addOperator('+')">+</button>
             </div>
         </div>
