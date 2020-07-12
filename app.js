@@ -1,9 +1,14 @@
 const calculator = document.querySelector('.calculator');
-const calcBtnArr = Array.from(document.querySelectorAll('.calculator__btn'));
+const calcBtns = Array.from(document.querySelectorAll('.calculator__btn'));
 const calcSreen = document.querySelector('.calculator__screen');
+const calcKeyBoard = document.querySelector('.calculator__keyboard');
 const calcError = document.querySelector('.calculator__error');
 const calcOperators = ['/', '*', '-', '+', '.'];
 
+
+calcBtns.forEach(btn => {
+    btn.onmousedown = (e) => e.preventDefault();
+});
 
 
 function calcValidate(operator) {
@@ -23,7 +28,7 @@ function addOperator(operator) {
 }
 
 function addValue(value) {
-    calcSreen.value += value;
+    calcSreen.setRangeText(value, calcSreen.selectionStart, calcSreen.selectionEnd, "end");
 }
 
 function calcClear() {
@@ -55,18 +60,28 @@ function showError() {
 const numbersKeys = /['0-9']/;
 const operatorsKeys = /['+', '*', '(', ')', '/', '.' ^\s -]/;
 
-function checkKeyPress(event) {
+function checkKeyPress(event, isSreenFocused) {
 
-    calcSreen.focus();
-    //calcSreen.selectionStart = calcSreen.value.length;
     let key = event.key;
+    calcSreen.focus();
 
-    if (numbersKeys.test(key) || operatorsKeys.test(key)) return;
+    if (isSreenFocused && numbersKeys.test(key) || operatorsKeys.test(key)) {
+        return;
+    } else event.preventDefault();
+
+    if (numbersKeys.test(key) && !isSreenFocused) addValue(key);
+    if (operatorsKeys.test(key) && !isSreenFocused) addOperator(operator);
 
     if (key == 'Enter' || key == '=') calculate();
-    event.preventDefault();
+
 }
 
-calculator.onkeypress = (event) => checkKeyPress(event);
+calcKeyBoard.onkeypress = (e) => checkKeyPress(e);
+calcSreen.onkeypress = (e) => checkKeyPress(e, true);
+
+
+
+
+
 
 
