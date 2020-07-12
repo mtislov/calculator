@@ -58,7 +58,7 @@ const operatorsKeys = /['+', '*', '(', ')', '/', '.' ^\s -]/;
 function checkKeyPress(event) {
 
     calcSreen.focus();
-    calcSreen.selectionStart = calcSreen.value.length;
+    //calcSreen.selectionStart = calcSreen.value.length;
     let key = event.key;
 
     if (numbersKeys.test(key) || operatorsKeys.test(key)) return;
