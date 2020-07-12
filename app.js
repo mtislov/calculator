@@ -1,4 +1,3 @@
-
 const calculator = document.querySelector('.calculator');
 const calcBtnArr = Array.from(document.querySelectorAll('.calculator__btn'));
 const calcSreen = document.querySelector('.calculator__screen');
@@ -7,7 +6,7 @@ const calcOperators = ['/', '*', '-', '+', '.'];
 
 
 
-function calcValidate (operator) {
+function calcValidate(operator) {
     let val = calcSreen.value;
 
     if (val == '' && operator !== '-') return false;
@@ -20,7 +19,7 @@ function calcValidate (operator) {
 }
 
 function addOperator(operator) {
-    if ( calcValidate(operator) ) addValue(operator);
+    if (calcValidate(operator)) addValue(operator);
 }
 
 function addValue(value) {
@@ -35,7 +34,7 @@ function calcClearLast() {
     calcSreen.value = calcSreen.value.slice(0, -1)
 }
 
-function calculate() { 
+function calculate() {
 
     if (calcSreen.value == '') return false;
 
@@ -43,12 +42,12 @@ function calculate() {
         calcSreen.value = eval(calcSreen.value);
     } catch {
         showError();
-    }    
+    }
 }
 
 function showError() {
     calcError.style.display = 'block';
-    setTimeout( () => {
+    setTimeout(() => {
         calcError.style.display = 'none';
     }, 3000);
 }
@@ -57,20 +56,17 @@ const numbersKeys = /['0-9']/;
 const operatorsKeys = /['+', '*', '(', ')', '/', '.' ^\s -]/;
 
 function checkKeyPress(event) {
-    event.preventDefault();
+
     calcSreen.focus();
-    
+    calcSreen.selectionStart = calcSreen.value.length;
     let key = event.key;
 
-    if ( numbersKeys.test(key) ) addValue(key);
+    if (numbersKeys.test(key) || operatorsKeys.test(key)) return;
 
-    else if ( operatorsKeys.test(key) ) addOperator(key);
-
-    else if (key == 'Enter' || key == '=') calculate();
+    if (key == 'Enter' || key == '=') calculate();
+    event.preventDefault();
 }
 
 calculator.onkeypress = (event) => checkKeyPress(event);
 
 
-
-///////////// При самостоятельном вводе знаков в фокус сдвигается в право!!!!!!!!
