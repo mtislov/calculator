@@ -1,6 +1,6 @@
 const calculator = document.querySelector('.calculator');
 const calcBtns = Array.from(document.querySelectorAll('.calculator__btn'));
-const calcSreen = document.querySelector('.calculator__screen');
+const calcScreen = document.querySelector('.calculator__screen');
 const calcKeyBoard = document.querySelector('.calculator__keyboard');
 const calcError = document.querySelector('.calculator__error');
 const calcOperators = ['/', '*', '-', '+', '.'];
@@ -12,7 +12,7 @@ calcBtns.forEach(btn => {
 
 
 function calcValidate(operator) {
-    let val = calcSreen.value;
+    let val = calcScreen.value;
 
     if (val == '' && operator !== '-') return false;
 
@@ -28,23 +28,22 @@ function addOperator(operator) {
 }
 
 function addValue(value) {
-    calcSreen.setRangeText(value, calcSreen.selectionStart, calcSreen.selectionEnd, "end");
+    calcScreen.setRangeText(value, calcScreen.selectionStart, calcScreen.selectionEnd, "end");
 }
 
 function calcClear() {
-    calcSreen.value = '';
+    calcScreen.value = '';
 }
 
 function calcClearLast() {
-    calcSreen.value = calcSreen.value.slice(0, -1)
+    calcScreen.value = calcScreen.value.slice(0, -1)
 }
 
 function calculate() {
-
-    if (calcSreen.value == '') return false;
+    if (calcScreen.value == '') return false;
 
     try {
-        calcSreen.value = eval(calcSreen.value);
+        calcScreen.value = eval(calcScreen.value);
     } catch {
         showError();
     }
@@ -63,7 +62,7 @@ const operatorsKeys = /['+', '*', '(', ')', '/', '.' ^\s -]/;
 function checkKeyPress(event, isSreenFocused) {
 
     let key = event.key;
-    calcSreen.focus();
+    calcScreen.focus();
 
     if (isSreenFocused && numbersKeys.test(key) || operatorsKeys.test(key)) {
         return;
@@ -76,13 +75,8 @@ function checkKeyPress(event, isSreenFocused) {
 
 }
 
-calcKeyBoard.onkeypress = (e) => checkKeyPress(e);
-calcSreen.onkeypress = (e) => checkKeyPress(e, true);
+calculator.onkeypress = (e) => checkKeyPress(e);
 
 
 
 
-
-
-
-// check https://learn.javascript.ru/selection-range#primer-vstavka-na-meste-kursora
