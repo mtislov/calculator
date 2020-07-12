@@ -85,3 +85,4 @@ calcSreen.onkeypress = (e) => checkKeyPress(e, true);
 
 
 
+// check https://learn.javascript.ru/selection-range#primer-vstavka-na-meste-kursora
