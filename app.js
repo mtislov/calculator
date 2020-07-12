@@ -70,3 +70,7 @@ function checkKeyPress(event) {
 }
 
 calculator.onkeypress = (event) => checkKeyPress(event);
+
+
+
+///////////// При самостоятельном вводе знаков в фокус сдвигается в право!!!!!!!!
