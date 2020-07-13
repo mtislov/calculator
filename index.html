@@ -12,49 +12,46 @@
 <body>
     
     <div class="main-container">
+        <h1>A simple calculator</h1>
         <div class="calculator">
             <p class="calculator__error">Error</p>
             <input class="calculator__screen" placeholder="0" maxlength="50" type="text" autofocus>
-            <div class="calculator__keyboard" tabindex="-1">
+            <div class="calculator__keyboard">
                 <div>
-                    <button class="calculator__btn" onclick="calcClear()">C</button>
-                    <button class="calculator__btn" onclick="calcClearLast()"><<</button>
-                    <button class="calculator__btn" onclick="addValue( '(' )">(</button>
-                    <button class="calculator__btn" onclick="addValue( ')' )">)</button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="calcClear()">C</button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="calcClearLast()"> ← </button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="addValue( '(' )"> ( </button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="addValue( ')' )"> ) </button>
                 </div>
                 <div>
                     <button class="calculator__btn" onclick="addValue(7)">7</button>
                     <button class="calculator__btn" onclick="addValue(8)">8</button>
                     <button class="calculator__btn" onclick="addValue(9)">9</button>
-                    <button class="calculator__btn" onclick="addOperator('/')">&#247;</button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="addOperator('/')">&#247;</button>
                 </div>
                 <div>
                     <button class="calculator__btn" onclick="addValue(4)">4</button>
                     <button class="calculator__btn" onclick="addValue(5)">5</button>
                     <button class="calculator__btn" onclick="addValue(6)">6</button>
-                    <button class="calculator__btn" onclick="addOperator('*')">*</button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="addOperator('*')">*</button>
                 </div>
                 <div>
                     <button class="calculator__btn" onclick="addValue(1)">1</button>
                     <button class="calculator__btn" onclick="addValue(2)">2</button>
                     <button class="calculator__btn" onclick="addValue(3)">3</button>
-                    <button class="calculator__btn" onclick="addOperator('-')">-</button>
+                    <button class="calculator__btn calculator__btn--operator" onclick="addOperator('-')">-</button>
                 </div>
                 <div>
-                    <button class="calculator__btn" onclick="addOperator('.')">.</button>
+                    <button class="calculator__btn border-bottom-left" onclick="addOperator('.')">.</button>
                     <button class="calculator__btn" onclick="addValue(0)">0</button>
-                    <button class="calculator__btn shake-horizontal" onclick="calculate()">=</button>
-                    <button class="calculator__btn" onclick="addOperator('+')">+</button>
+                    <button class="calculator__btn calculator__btn--operator shake-horizontal" onclick="calculate()">=</button>
+                    <button class="calculator__btn calculator__btn--operator border-bottom-right" onclick="addOperator('+')">+</button>
                 </div>
             </div>
 
         </div>
     
     </div>
-
-    <p tabindex="-1" class="a">111111111</p>
-    <input class="a" type="text">
-    
 
     <script src="app.js"></script>
 </body>

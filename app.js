@@ -32,6 +32,7 @@ function calcClear() {
 }
 
 function calcClearLast() {
+    if (!calcScreen.value) return;
     calcScreen.setRangeText('', calcScreen.selectionStart - 1, calcScreen.selectionEnd, "end");
 }
 
