@@ -48,9 +48,9 @@ function calculate() {
 }
 
 function showError() {
-    calculateBtn.classList.toggle('shake-horizontal');
     calcError.style.display = 'block';
-
+    calculateBtn.classList.toggle('shake-horizontal');
+    
     setTimeout(() => {calculateBtn.classList.toggle('shake-horizontal')}, 500);
     setTimeout(() => {calcError.style.display = 'none'}, 3000);
 }
