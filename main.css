@@ -23,7 +23,7 @@ h1 {
     flex-wrap: nowrap;
     font-family: 'Montserrat', sans-serif;
     position: relative;
-	box-shadow: 0 0 10px rgba(85, 85, 85, 0.5);
+  	box-shadow: 0 0 10px rgba(85, 85, 85, 0.5);
 	border-radius: 12px;
 	font-size: 37px;
 }
@@ -39,11 +39,12 @@ h1 {
 	border-top-right-radius: 12px;
 	border: none;
 	padding: 10px;
-	border-bottom: 1px solid #747f77;
+	border: 3px solid #fff;
 }
 
 .calculator__screen:focus {
 	outline: none;
+	border: 3px solid #f8b167;
 }
 
 .calculator__keyboard {
@@ -81,7 +82,7 @@ h1 {
 }
 
 .calculator__btn--operator:hover {
-	background: rgba(255, 226, 85, 0.45);
+	background: linear-gradient(to bottom, #d5b1c7 0%, #fc9d6b 100%);
 }
 
 .calculator__btn.border-bottom-left {
@@ -130,5 +131,6 @@ h1 {
 }
 
 .shake-horizontal {
-	animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	animation: shake-horizontal 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	background: linear-gradient(to bottom, #ff0000 0%, #fc9d6b 100%) !important;
 }

@@ -3,6 +3,7 @@ const calcBtns = Array.from(document.querySelectorAll('.calculator__btn'));
 const calcScreen = document.querySelector('.calculator__screen');
 const calcKeyBoard = document.querySelector('.calculator__keyboard');
 const calcError = document.querySelector('.calculator__error');
+const calculateBtn = document.querySelector('.calculate');
 const calcOperators = ['/', '*', '-', '+', '.'];
 
 
@@ -47,10 +48,11 @@ function calculate() {
 }
 
 function showError() {
+    calculateBtn.classList.toggle('shake-horizontal');
     calcError.style.display = 'block';
-    setTimeout(() => {
-        calcError.style.display = 'none';
-    }, 3000);
+
+    setTimeout(() => {calculateBtn.classList.toggle('shake-horizontal')}, 500);
+    setTimeout(() => {calcError.style.display = 'none'}, 3000);
 }
 
 const numbersKeys = /['0-9']/;
